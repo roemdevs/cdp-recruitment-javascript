@@ -1,4 +1,6 @@
-export const data = [
+import { Country } from '../types/types';
+
+export const data: Country[] = [
   {
     name: 'Dillauti',
     people: [
