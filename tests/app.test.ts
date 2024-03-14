@@ -1,3 +1,5 @@
+import { data } from '../src/data/data';
+import { filterByAnimals } from '../src/utils/filter-by-animals';
 import { parseCLIParams } from '../src/utils/parse-cli-params';
 
 describe('CLI Params Parsing', () => {
@@ -32,5 +34,28 @@ describe('CLI Params Parsing', () => {
       ['count', true],
     ]);
     expect(parseCLIParams()).toEqual(result);
+  });
+});
+
+describe('Filter by Animals', () => {
+  it('should skip filtering and return the original data', () => {
+    const result: Country[] = data;
+    expect(filterByAnimals(data)).toEqual(result);
+  });
+
+  it('should filter and return all the countries containing animals having a name that matches the passed param', () => {
+    const param = 'ry';
+    const result: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [{ name: 'Lillie Abbott', animals: [{ name: 'John Dory' }] }],
+      },
+      {
+        name: 'Satanwi',
+        people: [{ name: 'Anthony Bruno', animals: [{ name: 'Oryx' }] }],
+      },
+    ];
+
+    expect(filterByAnimals(data, param)).toEqual(result);
   });
 });
