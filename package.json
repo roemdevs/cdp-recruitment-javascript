@@ -1,0 +1,8 @@
+{
+  "name": "cdp-recruitment-javascript",
+  "version": "1.0.0",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"WIP: no test specified yet\" && exit 1"
+  }
+}
