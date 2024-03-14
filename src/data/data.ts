@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     name: 'Dillauti',
     people: [
@@ -400,7 +400,3 @@ const data = [
     ],
   },
 ];
-
-module.exports = {
-  data,
-};

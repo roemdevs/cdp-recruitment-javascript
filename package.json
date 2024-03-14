@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "data.js",
   "scripts": {
-    "test": "echo \"WIP: no test specified yet\" && exit 1"
+    "test": "echo \"WIP: no test specified yet\" && exit 1",
+    "build": "tsc --build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2"
   }
 }
