@@ -7,6 +7,11 @@ import { parseCLIParams } from './utils/parse-cli-params';
 const main = (): void => {
   const params = parseCLIParams();
 
+  if (params.size === 0) {
+    console.log('Warning: You must pass a parameter to the application.');
+    console.log('Allowed parameters are `--filter=<name>` or `--count`.');
+  }
+
   let output = data;
 
   if (params.has('filter')) {
