@@ -89,3 +89,12 @@ We will be really attentive to:
 
 - Code readability, structure and consistency
 - Tests, and how they are written
+
+## How to run
+
+Since TypeScript is in the project, you will need to build the project first.
+To do this, you can use the command `npm run build`, before using `node dist/app.js` to run the application.
+
+For example, to run the application with the parameter `--filter=ry`, you must then execute the following command: `node dist/app.js --filter=ry`.
+
+You can also start the application using the following syntaxes `npm start -- --filter=ry` or `npm start -- --count`.
