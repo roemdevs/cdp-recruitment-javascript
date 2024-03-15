@@ -1,4 +1,6 @@
 import { data } from '../src/data/data';
+import { Country } from '../src/types/types';
+import { appendCountToName, countPeopleAndAnimals } from '../src/utils/count-people-and-animals';
 import { filterByAnimals } from '../src/utils/filter-by-animals';
 import { parseCLIParams } from '../src/utils/parse-cli-params';
 
@@ -57,5 +59,50 @@ describe('Filter by Animals', () => {
     ];
 
     expect(filterByAnimals(data, param)).toEqual(result);
+  });
+});
+
+describe('Append count to name', () => {
+  it('should append "[8]" to "Uzozozne"', () => {
+    const name = 'Uzozozne';
+    const count = 8;
+    const result = 'Uzozozne [8]';
+
+    expect(appendCountToName(name, count)).toEqual(result);
+  });
+});
+
+describe('Count People and Animals', () => {
+  it('should append counts to he names', () => {
+    const data: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [{ name: 'Lillie Abbott', animals: [{ name: 'John Dory' }, { name: 'Macaw' }, { name: 'Gazelle' }] }],
+      },
+      {
+        name: 'Satanwi',
+        people: [
+          { name: 'Anthony Bruno', animals: [{ name: 'Oryx' }] },
+          { name: 'Lina Allen', animals: [] },
+        ],
+      },
+    ];
+    const result: Country[] = [
+      {
+        name: 'Uzuzozne [1]',
+        people: [
+          { name: 'Lillie Abbott [3]', animals: [{ name: 'John Dory' }, { name: 'Macaw' }, { name: 'Gazelle' }] },
+        ],
+      },
+      {
+        name: 'Satanwi [2]',
+        people: [
+          { name: 'Anthony Bruno [1]', animals: [{ name: 'Oryx' }] },
+          { name: 'Lina Allen [0]', animals: [] },
+        ],
+      },
+    ];
+
+    expect(countPeopleAndAnimals(data)).toEqual(result);
   });
 });
