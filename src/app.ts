@@ -7,12 +7,17 @@ import { parseCLIParams } from './utils/parse-cli-params';
 const main = (): void => {
   const params = parseCLIParams();
 
+  let output = data;
+
   if (params.has('filter')) {
     const filter = params.get('filter');
-    logFullObject(filterByAnimals(data, filter));
-  } else if (params.has('count')) {
-    logFullObject(countPeopleAndAnimals(data));
+    output = filterByAnimals(output, filter);
   }
+  if (params.has('count')) {
+    output = countPeopleAndAnimals(output);
+  }
+
+  logFullObject(output);
 };
 
 main();
