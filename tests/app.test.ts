@@ -60,6 +60,52 @@ describe('Filter by Animals', () => {
 
     expect(filterByAnimals(data, param)).toEqual(result);
   });
+
+  it('should not change the order of the keys', () => {
+    const param = 'ca';
+    const data: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [
+          {
+            name: 'Lillie Abbott',
+            animals: [{ name: 'Rats' }, { name: 'Cats' }, { name: 'Gazelle' }],
+          },
+        ],
+      },
+      {
+        name: 'Satanwi',
+        people: [
+          {
+            name: 'Anthony Bruno',
+            animals: [{ name: 'Rats' }, { name: 'Macaw' }, { name: 'Gazelle' }, { name: 'Cats' }, { name: 'Alpaca' }],
+          },
+        ],
+      },
+    ];
+    const result: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [
+          {
+            name: 'Lillie Abbott',
+            animals: [{ name: 'Cats' }],
+          },
+        ],
+      },
+      {
+        name: 'Satanwi',
+        people: [
+          {
+            name: 'Anthony Bruno',
+            animals: [{ name: 'Macaw' }, { name: 'Cats' }, { name: 'Alpaca' }],
+          },
+        ],
+      },
+    ];
+
+    expect(filterByAnimals(data, param)).toEqual(result);
+  });
 });
 
 describe('Append count to name', () => {
