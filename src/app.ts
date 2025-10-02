@@ -19,6 +19,11 @@ function main(): void {
   }
 
   logDeepObject(output);
+
+  if (params.size === 0) {
+    console.log('Warning: no parameters provided, displaying full data set.');
+    console.log('Usage: node dist/app.js [--filter=pattern] [--count]');
+  }
 }
 
 main();
