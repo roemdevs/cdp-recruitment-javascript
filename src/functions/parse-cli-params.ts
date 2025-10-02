@@ -10,7 +10,8 @@ export const parseCLIParams = (): ParamsMap => {
   const paramsMap = new Map<string, string | boolean>();
 
   filteredParams.forEach((param) => {
-    const [key, value] = param.split(PARAM_DELIMITER);
+    const paramWithoutPrefix = param.slice(PARAM_PREFIX.length);
+    const [key, value] = paramWithoutPrefix.split(PARAM_DELIMITER);
 
     if (value) {
       paramsMap.set(key, value);
