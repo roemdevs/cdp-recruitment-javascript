@@ -7,7 +7,6 @@
     "build": "tsc --build",
     "pretest": "npm run build",
     "test": "vitest run",
-    "prestart": "npm run build",
     "start": "node dist/app.js"
   },
   "keywords": [],
