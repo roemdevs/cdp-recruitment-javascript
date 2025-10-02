@@ -46,4 +46,35 @@ describe('filterByAnimals', () => {
   it('returns an empty array if no countries match the filter', () => {
     expect(filterByAnimals(countries, 'fish')).toEqual([]);
   });
+
+  it('shuold not change the order of the keys', () => {
+    const input: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [{ name: 'Lillie Abbott', animals: [{ name: 'Cat' }, { name: 'Gazelle' }] }],
+      },
+      {
+        name: 'Satanwi',
+        people: [
+          {
+            name: 'Anthony Bruno',
+            animals: [{ name: 'Oryx' }, { name: 'Macaw' }, { name: 'Cat' }, { name: 'Alpaca' }],
+          },
+        ],
+      },
+    ];
+
+    const result: Country[] = [
+      {
+        name: 'Uzuzozne',
+        people: [{ name: 'Lillie Abbott', animals: [{ name: 'Cat' }] }],
+      },
+      {
+        name: 'Satanwi',
+        people: [{ name: 'Anthony Bruno', animals: [{ name: 'Macaw' }, { name: 'Cat' }, { name: 'Alpaca' }] }],
+      },
+    ];
+
+    expect(filterByAnimals(input, 'ca')).toEqual(result);
+  });
 });
