@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { COUNT_RESULT } from './results/count.result';
+import { FILTER_AND_COUNT_RESULT } from './results/filter-and-count.result';
 import { FILTER_RESULT } from './results/filter.result';
 
 describe('E2E Application Tests', () => {
@@ -26,5 +27,15 @@ describe('E2E Application Tests', () => {
     const output = result.toString();
 
     expect(output).toEqual(FILTER_RESULT);
+  });
+
+  it('should pass filter and count case', () => {
+    const result = execSync('node dist/app.js --filter=ry --count', {
+      stdio: ['inherit'],
+    });
+
+    const output = result.toString();
+
+    expect(output).toEqual(FILTER_AND_COUNT_RESULT);
   });
 });
