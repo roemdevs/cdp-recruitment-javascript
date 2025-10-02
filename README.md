@@ -90,20 +90,64 @@ We will be really attentive to:
 - Code readability, structure and consistency
 - Tests, and how they are written
 
-## Run the project
+## Build and Run
 
-Before starting, install the packages: `npm install`
+Before starting, install the packages
 
-As we're using TypeScript in the project, you will need to build the project first.
+```sh
+npm install
+```
 
-To do so, run the command `npm run build`.
+As we're using TypeScript in the project, you will need to build the project.
 
-You can now run `node dist/app.js` to run the application.
+```sh
+npm run build
+```
 
-Example, to run the application with the parameter `--filter=ry`, you must execute the following command: `node dist/app.js --filter=ry`.
+This will compile the TypeScript source files into JavaScript in the `dist/` directory.
 
-You can also run it using `npm run start`, but you will need to use the following syntax to pass the parameters `npm start -- --filter=ry`
+#### Running the Application
 
-In order to count: `node dist/app.js --count` or `npm start -- --count`
+To run the application:
 
-If you want to filter and count at the same time: `node dist/app.js --filter=ry --count` or `npm start -- --filter=ry --count`
+```sh
+node dist/app.js [--filter=pattern] [--count]
+```
+
+Example:
+
+- To filter animals by the pattern `ry`:
+
+  ```sh
+  node dist/app.js --filter=ry
+  ```
+
+- To count:
+  ```sh
+  node dist/app.js --count
+  ```
+
+#### You can also pass multiple parameters at the same time:
+
+```sh
+node dist/app.js --filter=ry --count
+```
+
+### Alternatively, you can use npm scripts:
+
+- Filtering:
+
+  ```sh
+  npm start -- --filter=ry
+  ```
+
+- Counting:
+
+  ```sh
+  npm start -- --count
+  ```
+
+- Multiple params:
+  ```sh
+  npm start -- --filter=ry --count
+  ```
