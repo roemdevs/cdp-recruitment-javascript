@@ -1,5 +1,8 @@
+import { data } from './data/data';
+import { logDeepObject } from './functions/log-deep-object';
+
 function main(): void {
-  console.log('Hello World!');
+  logDeepObject(data);
 }
 
 main();
