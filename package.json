@@ -5,7 +5,9 @@
   "main": "data.js",
   "scripts": {
     "build": "tsc --build",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prestart": "npm run build",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "license": "ISC",
