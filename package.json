@@ -4,6 +4,7 @@
   "description": "Filter data from a JSON file based on user input",
   "main": "data.js",
   "scripts": {
+    "build": "tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
