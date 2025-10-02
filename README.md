@@ -7,7 +7,7 @@ This program has to filter a list of elements containing a pattern.
 
 Details:
 
-- In the following file `data.js`, there are `Countries` containing `Peoples` containing `Animals`.
+- In the following file `src/data/data.js`, there are `Countries` containing `Peoples` containing `Animals`.
 - Only animals containing `ry` are displayed. The order should be kept intact.
 - Empty array after filtering are NOT returned.
 
